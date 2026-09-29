@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: nova-finance-api
+    runtime: node
+    buildCommand: ""
+    startCommand: node server.cjs
+    healthCheckPath: /api/health
+    envVars:
+      - key: EZHONGZHUAN_API_KEY
+        sync: false
+      - key: EZHONGZHUAN_BASE_URL
+        value: https://api.ezhongzhuan.com/v1
+      - key: EZHONGZHUAN_MODEL
+        value: gpt-5.5
+      - key: EZHONGZHUAN_WEB_SEARCH
+        value: "true"
+      - key: FUTU_BRIDGE_URL
+        sync: false
+      - key: FUTU_BRIDGE_KEY
+        sync: false
+      - key: ALLOWED_ORIGINS
+        sync: false

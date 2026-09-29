@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f7f8fa" />
+  <title>NOVA Finance | 金融智能终端</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="主导航">
+      <div class="brand-mark">
+        <div class="brand-symbol">N</div>
+        <div>
+          <div class="brand-name">NOVA</div>
+          <div class="brand-sub">FINANCE AI</div>
+        </div>
+      </div>
+
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="nav-list">
+        <button class="nav-item active" data-view="chat"><span class="nav-icon">⌁</span><span>智能对话</span><span class="nav-count">1</span></button>
+        <button class="nav-item" data-view="screener"><span class="nav-icon">◫</span><span>量化选股</span></button>
+        <button class="nav-item" data-view="watchlist"><span class="nav-icon">☆</span><span>我的自选</span><span class="nav-count">8</span></button>
+        <button class="nav-item" data-view="news"><span class="nav-icon">◌</span><span>新闻雷达</span><span class="live-dot"></span></button>
+      </nav>
+
+      <div class="sidebar-divider"></div>
+      <div class="workspace-label history-label">RECENT CHATS <button class="icon-button tiny" id="newChat" title="新建对话">＋</button></div>
+      <div class="chat-history" id="chatHistory">
+        <button class="history-item selected"><span class="history-star">✦</span><span class="history-text"><b>今天的市场怎么样？</b><small>刚刚 · 智能对话</small></span></button>
+        <button class="history-item"><span class="history-star">◇</span><span class="history-text"><b>腾讯控股估值分析</b><small>昨天 · 智能对话</small></span></button>
+        <button class="history-item"><span class="history-star">◇</span><span class="history-text"><b>AI 产业链机会</b><small>9月11日 · 智能对话</small></span></button>
+        <button class="history-item"><span class="history-star">◇</span><span class="history-text"><b>港股本周复盘</b><small>9月9日 · 智能对话</small></span></button>
+      </div>
+
+      <div class="sidebar-bottom">
+        <button class="nav-item compact"><span class="nav-icon">⚙</span><span>偏好设置</span></button>
+        <button class="profile-card" id="profileButton">
+          <div class="avatar">林</div>
+          <div class="profile-copy"><b>Reina</b><small>Pro 会员</small></div>
+          <span class="profile-more">···</span>
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="mobile-brand"><div class="brand-symbol small">N</div><span>NOVA</span></div>
+        <div class="market-status"><span class="status-dot"></span><span>市场交易中</span><span class="market-time">09:41:26</span><div class="market-switch" role="group" aria-label="市场选择"><button class="market-switch-button active" data-market="hk">港股</button><button class="market-switch-button" data-market="us">美股</button></div></div>
+        <div class="top-actions">
+          <button class="top-action" title="全局搜索" id="searchButton">⌕<span>搜索</span><kbd>⌘ K</kbd></button>
+          <button class="top-action only-icon" title="通知">♢<span class="notification-dot"></span></button>
+          <button class="avatar top-avatar" id="topProfile">林</button>
+        </div>
+      </header>
+
+      <section class="content-wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow" id="sessionLabel">MONDAY, SEPTEMBER 13, 2026 · 香港市场</div>
+            <h1 id="pageTitle">早上好，Reina <span class="wave">✦</span></h1>
+          </div>
+          <div class="section-tools"><span class="data-refresh"><span class="status-dot"></span>数据更新于 09:41</span><button class="refresh-button" title="刷新数据" id="refreshButton">↻</button></div>
+        </div>
+
+        <div class="view-tabs" role="tablist">
+          <button class="view-tab active" data-tab="chat">智能对话</button>
+          <button class="view-tab" data-tab="screener">量化选股 <span class="new-pill">NEW</span></button>
+        </div>
+
+        <div id="chatView" class="view-panel active-view">
+          <div class="chat-layout">
+            <section class="chat-panel panel-surface">
+              <div class="chat-panel-head"><div><h2>你的市场副驾驶</h2><p>我可以帮你跟踪行情、拆解公司与发现机会</p></div><button class="more-button" title="更多选项">•••</button></div>
+              <div class="conversation" id="conversation">
+                <div class="message-row assistant-row"><div class="assistant-avatar">N</div><div class="message-content"><span class="message-time">09:41</span><div class="message-bubble assistant-bubble"><p>早上好，Reina。今天港股与美股的科技板块值得重点跟踪。你想先看指数、个股，还是扫描市场机会？</p><div class="signal-line"><span class="signal-icon">↗</span><span>恒生指数</span><strong>+0.42%</strong><span class="signal-divider"></span><span>纳斯达克 100</span><strong>+0.68%</strong></div></div></div></div>
+                <div class="suggested-prompts"><button data-prompt="今天港美市场的主要驱动因素是什么？">今天市场的主要驱动因素是什么？</button><button data-prompt="帮我找出港美市场成交量放大的股票">找出成交量放大的股票</button><button data-prompt="腾讯控股现在适合买入吗？">腾讯控股现在适合买入吗？</button></div>
+              </div>
+              <form class="composer" id="composer"><div class="composer-tools"><button type="button" class="composer-icon" title="添加上下文">＋</button><button type="button" class="composer-icon" title="选择模型">◉</button><span class="composer-model">NOVA Market v2.4</span></div><textarea id="promptInput" rows="1" placeholder="问我任何关于市场的问题..." aria-label="输入你的问题"></textarea><div class="composer-bottom"><span class="composer-hint">Enter 发送 · Shift + Enter 换行</span><button class="send-button" type="submit" title="发送消息">↑</button></div></form>
+            </section>
+
+            <aside class="insight-panel">
+                <div class="insight-card market-card"><div class="card-heading"><div><span class="card-kicker">MARKET PULSE</span><h3>盘面脉搏</h3></div><span class="live-badge"><i></i>LIVE</span></div><div class="market-big"><strong>+0.42%</strong><span>恒生指数</span></div><div class="sparkline large"><span style="--h:30%"></span><span style="--h:42%"></span><span style="--h:36%"></span><span style="--h:55%"></span><span style="--h:47%"></span><span style="--h:65%"></span><span style="--h:58%"></span><span style="--h:78%"></span><span style="--h:72%"></span><span style="--h:88%"></span><span style="--h:81%"></span><span style="--h:95%"></span></div><div class="market-meta"><span>今开 <b>--</b></span><span>最高 <b>--</b></span><span>成交额 <b>--</b></span></div></div>
+                <div class="insight-card focus-card"><div class="card-heading"><div><span class="card-kicker">AI BRIEFING</span><h3>今日关注</h3></div><button class="text-button">查看全部 →</button></div><div class="focus-item"><span class="focus-number">01</span><div><b>港股互联网板块表现分化</b><p>关注龙头公司成交与资金流向</p></div><span class="focus-arrow">↗</span></div><div class="focus-item"><span class="focus-number">02</span><div><b>美股科技板块持续活跃</b><p>观察盘前报价与财报预期变化</p></div><span class="focus-arrow">↗</span></div><div class="focus-item"><span class="focus-number">03</span><div><b>关注中美利率与汇率变化</b><p>可能影响港美成长股估值</p></div><span class="focus-arrow">↗</span></div></div>
+            </aside>
+          </div>
+        </div>
+
+        <div id="screenerView" class="view-panel">
+          <section class="screener-panel panel-surface"><div class="screener-head"><div><span class="eyebrow">SCREEN BUILDER</span><h2>量化选股器</h2><p>用简单条件，快速找到港股与美股中值得关注的公司。</p></div><button class="outline-button" id="saveScreen">♡ 保存策略</button></div><div class="filter-row"><label>市场<select><option>港股</option><option>美股</option></select></label><label>市值<select><option>不限</option><option>100 亿以上</option><option>500 亿以上</option></select></label><label>涨跌幅<select><option>今日涨幅 &gt; 2%</option><option>今日跌幅 &lt; -2%</option><option>不限</option></select></label><label>成交量<select><option>量比 &gt; 1.5</option><option>量比 &gt; 2.0</option><option>不限</option></select></label><button class="primary-button" id="runScreen">运行筛选 <span>→</span></button></div><div class="screen-summary"><span><b id="resultCount">24</b> 只股票符合条件</span><button class="sort-button">按综合评分排序 ↕</button></div><div class="results-table"><div class="table-row table-head"><span>公司</span><span>最新价</span><span>涨跌幅</span><span>成交量</span><span>评分</span><span></span></div><div class="table-row"><span class="stock-cell"><i class="ticker-logo blue">腾</i><b>腾讯控股</b><small>00700 · 港</small></span><span>--</span><span>--</span><span>--</span><span class="score">92</span><button class="row-action">加入自选</button></div><div class="table-row"><span class="stock-cell"><i class="ticker-logo orange">阿</i><b>阿里巴巴-W</b><small>09988 · 港</small></span><span>--</span><span>--</span><span>--</span><span class="score">89</span><button class="row-action">加入自选</button></div><div class="table-row"><span class="stock-cell"><i class="ticker-logo green">N</i><b>NVIDIA</b><small>NVDA · NASDAQ</small></span><span>--</span><span>--</span><span>--</span><span class="score">86</span><button class="row-action">加入自选</button></div><div class="table-row"><span class="stock-cell"><i class="ticker-logo red">A</i><b>Apple</b><small>AAPL · NASDAQ</small></span><span>--</span><span>--</span><span>--</span><span class="score">83</span><button class="row-action">加入自选</button></div></div></section>
+        </div>
+
+        <div class="lower-grid">
+          <section class="watchlist-section panel-surface"><div class="section-card-head"><div><span class="card-kicker">WATCHLIST</span><h2>我的自选 <span class="count-label">5</span></h2></div><button class="text-button" id="editWatchlist">管理自选 →</button></div><div class="watchlist-tabs"><button class="watch-tab active" data-region="all">全部</button><button class="watch-tab" data-region="hk">香港</button><button class="watch-tab" data-region="us">美国</button><button class="watch-tab">科技成长</button></div><div class="watchlist" id="watchlist"></div></section>
+          <section class="news-section panel-surface"><div class="section-card-head"><div><span class="card-kicker">BREAKING NEWS</span><h2>新闻雷达 <span class="live-badge"><i></i>实时</span></h2></div><button class="text-button" id="refreshNews">刷新 ↻</button></div><div class="news-toolbar"><button class="news-filter active" data-news-region="all">全部</button><button class="news-filter" data-news-region="hk">香港</button><button class="news-filter" data-news-region="us">美国</button><span class="source-note">仅展示专业来源</span></div><div class="news-feed" id="newsFeed"><div class="news-empty-state">正在获取港股和美股资讯…</div></div><div class="source-disclaimer">新闻将保留原文链接、发布时间与来源标识，不构成投资建议。</div></section>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="loginModal" aria-hidden="true"><div class="login-modal"><button class="modal-close" id="closeModal">×</button><div class="login-logo">N</div><span class="eyebrow">WELCOME BACK</span><h2>登录 NOVA Finance</h2><p>同步你的对话、策略与自选股。</p><form id="loginForm"><label>邮箱地址<input type="email" placeholder="name@company.com" required /></label><label>密码<div class="password-wrap"><input type="password" placeholder="至少 8 位字符" required /><button type="button" id="togglePassword">显示</button></div></label><button class="primary-button wide" type="submit">登录 <span>→</span></button></form><div class="login-divider"><span>或</span></div><button class="social-button">◎ 使用 Google 登录</button><small class="login-terms">登录即代表你同意服务条款与隐私政策</small></div></div>
+  <div class="modal-backdrop" id="watchlistModal" aria-hidden="true"><section class="watchlist-modal" role="dialog" aria-modal="true" aria-labelledby="watchlistModalTitle"><div class="watchlist-modal-head"><div><span class="eyebrow">WATCHLIST MANAGER</span><h2 id="watchlistModalTitle">管理自选股</h2><p>输入港股或美股的名称、代码，再从候选结果中加入。</p></div><button class="modal-close" id="closeWatchlistModal" aria-label="关闭">×</button></div><form class="watchlist-add-form" id="watchlistAddForm"><label>市场<select id="watchMarket"><option value="hk">香港</option><option value="us">美国</option></select></label><label>股票名称或代码<input id="watchCode" autocomplete="off" placeholder="例如 9988、00700、AAPL" required /></label><button class="primary-button" type="submit">搜索股票 <span>→</span></button></form><p class="watchlist-hint">股票搜索、报价、市场状态与分时 K 线均来自本机 Futu OpenAPI。</p><div class="security-search-status" id="securitySearchStatus" aria-live="polite"></div><div class="security-search-results" id="securitySearchResults"></div><div class="watchlist-manager-tools"><strong>已关注股票</strong><label>排序<select id="watchlistSort"><option value="manual">加入顺序</option><option value="change">涨跌幅从高到低</option><option value="price">价格从高到低</option><option value="name">名称 A-Z / 拼音</option></select></label></div><div class="watchlist-manager-list" id="watchlistManagerList"></div></section></div>
+  <div class="modal-backdrop" id="stockDetailModal" aria-hidden="true"><section class="stock-detail-modal" role="dialog" aria-modal="true" aria-labelledby="stockDetailName"><div class="stock-detail-head"><div class="stock-detail-identity"><span class="stock-badge blue" id="stockDetailBadge">N</span><div><span class="eyebrow" id="stockDetailMarket">FUTU QUOTE</span><h2 id="stockDetailName">股票详情</h2><p id="stockDetailCode">--</p></div></div><button class="modal-close" id="closeStockDetailModal" aria-label="关闭">×</button></div><div class="stock-detail-quote"><div><strong id="stockDetailPrice">--</strong><span id="stockDetailChange">等待富途报价</span></div><div class="stock-detail-status"><span class="status-dot"></span><span id="stockDetailStatus">正在获取富途行情</span></div></div><div class="stock-detail-chart-card"><div class="stock-detail-section-head"><div><strong>日内走势</strong><small>鼠标悬停查看每分钟价格</small></div><span id="stockDetailChartLabel">Futu · 1 分钟</span></div><div class="stock-detail-chart" id="stockDetailChart"><span>正在加载分时数据…</span></div></div><div class="stock-detail-section-head"><strong>行情概览</strong><span id="stockDetailUpdated">--</span></div><div class="stock-detail-metrics" id="stockDetailMetrics"></div><div class="stock-detail-footer"><strong>数据披露</strong>：报价与分时数据直接来自 Futu OpenAPI；行情类型及更新速度以账户权限和市场状态为准。页面不补造缺失字段，不构成投资建议。</div></section></div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

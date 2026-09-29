@@ -1,0 +1,13 @@
+market-api.env
+futu-bridge.env
+.futu-sdk/
+.futu-source/
+.futu-wheels/
+.futu-runtime/
+.futu_deps/
+.pip-cache/
+.pip-tmp/
+.tools/
+__pycache__/
+*.pyc
+*.log
