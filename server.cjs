@@ -438,4 +438,8 @@ const server = http.createServer(async (request, response) => {
 });
 
 const port = Number(process.env.PORT || 4183);
-server.listen(port, process.env.HOST || '0.0.0.0', () => console.log(`NOVA Finance API: http://127.0.0.1:${port}/`));
+module.exports = server;
+if (require.main === module) {
+  const port = Number(process.env.PORT || 4183);
+  server.listen(port, process.env.HOST || '0.0.0.0', () => console.log(`NOVA Finance API: http://127.0.0.1:${port}/`));
+}
